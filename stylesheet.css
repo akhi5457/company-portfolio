@@ -25,6 +25,10 @@ body{
     /* z-index:0.1; */
  
 }
-i{
-    float: right;
+.col-4{
+    width: 350px; 
+    height: 450px; 
+    margin-right: 20px; 
+    text-align: center;
+    color: white;
 }
