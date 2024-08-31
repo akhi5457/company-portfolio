@@ -11,7 +11,7 @@
 </head>
 <body>
     <div class="container-fluid" id="page1">
-        <div class="row" style="margin: 0px 0px 0px 30px;">
+        <div class="row" >
             <div class="col-6" style="padding-top: 50px;">
                 <img src="images/logo.jpg" alt="" style="width: 150px; height: 150px;">
             </div>
@@ -31,7 +31,7 @@
                     <div class="container-fluid">
                         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                             <div class="navbar-nav ">
-                                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                                <a class="nav-link active" aria-current="page" href="index.html">Home</a>
                                 <a class="nav-link" href="#">About</a>
                                 <a class="nav-link" href="#">Course</a>
                                 <a class="nav-link" href="#">contact</a>
@@ -58,10 +58,10 @@
             </div>
         </div>
     </div>
-        <div class="container-fluid bg-body-secondary" style="margin: 100px 50px;">
+        <div class="container-fluid bg-body-secondary" style="padding: 100px 50px;">
             <div class="row">
                 <label style="text-align: center;"><h1>Get In Touch Using The Contact Form</h1></label>
-                <div class="col-4">
+                <div class="col-4"><br><br> 
                     <span style="color: red;">*</span><input type="text" class="form-control" placeholder="student name" name="student-name"><br><br>
                     <label>Choose your standard</label><span style="color: red;">*</span><br><br>
                     <div class="radio-group">
@@ -73,11 +73,29 @@
                     
                     <input type="radio" value="11-12" id="radio3" name="age">
                     <label for="radio3" class="radio-label">11-12</label>
+                </div><br><br>
+                <span style="color: red;">*</span><input type="email" class="form-control" placeholder="student email" name="student-email"><br><br>
+
+
                 </div>
+                <div class="col-4"><br><br>
+                <span style="color: red;">*</span><input type="text" class="form-control" placeholder="parent name" name="parent-name"><br><br>
+                <span style="color: red;">*</span><input type="text" class="form-control" placeholder="school" name="school-name"><br><br>
+                <span style="color: red;">*</span><input type="tel" class="form-control" placeholder="contact number" name="contact-number"><br><br>
+                <textarea class="form-control" placeholder="write your message" name="message"></textarea><br><br>
+                <button class="btn btn-lg bg-danger">REGISTER</button>
+
                 </div>
+                <div class="col-4 bg-white" style="padding: 50px;"><h3>Contact Info</h3>
+                    Address: <br>
+                    CamerinKids
+                    Mythri Buildings, Arangath Road, Pulleppady, Cochin-18 <br><br>
+                    Phone: <br>
+                    +91 9567769422,<br>
+                    +91 7736421092 <br><br>
+                    Email: <br>
+                    info@camerinfolks.com</div>
                 </div>
-                <div class="col-4"></div>
-                <div class="col-4"></div>
             </div>
         </div>
 
@@ -122,8 +140,16 @@
 .radio-group input:hover + .radio-label{
     background-color: rgb(255, 217, 0);
 }
+.radio-group input:checked + .radio-label{
+    background-color: rgb(165, 149, 59);
+}
+
 .radio-group input{
     display: none;
+}
+.btn{
+    width: 300px;
+    border-radius: 50px !important;
 }
     </style>    
 </body>
