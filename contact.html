@@ -62,7 +62,7 @@
             <div class="row">
                 <label style="text-align: center;"><h1>Get In Touch Using The Contact Form</h1></label>
                 <div class="col-4"><br><br> 
-                    <span style="color: red;">*</span><input type="text" class="form-control" placeholder="student name" name="student-name"><br><br>
+                    <span style="color: red;">*</span><input type="text" class="form-control" placeholder="student name" name="student-name"><div class="snameError"></div><br><br>
                     <label>Choose your standard</label><span style="color: red;">*</span><br><br>
                     <div class="radio-group">
                     <input type="radio" value="4-6" id="radio1" name="age">
@@ -74,14 +74,14 @@
                     <input type="radio" value="11-12" id="radio3" name="age">
                     <label for="radio3" class="radio-label">11-12</label>
                 </div><br><br>
-                <span style="color: red;">*</span><input type="email" class="form-control" placeholder="student email" name="student-email"><br><br>
+                <span style="color: red;">*</span><input type="email" class="form-control" placeholder="student email" name="student-email"><div class="semailError"></div><br><br>
 
 
                 </div>
                 <div class="col-4"><br><br>
-                <span style="color: red;">*</span><input type="text" class="form-control" placeholder="parent name" name="parent-name"><br><br>
-                <span style="color: red;">*</span><input type="text" class="form-control" placeholder="school" name="school-name"><br><br>
-                <span style="color: red;">*</span><input type="tel" class="form-control" placeholder="contact number" name="contact-number"><br><br>
+                <span style="color: red;">*</span><input type="text" class="form-control" placeholder="parent name" name="parent-name"><div class="pnameError"></div><br><br>
+                <span style="color: red;">*</span><input type="text" class="form-control" placeholder="school" name="school-name"><div class="schoolError"></div><br><br>
+                <span style="color: red;">*</span><input type="tel" class="form-control" placeholder="contact number" name="contact-number"><div class="contactError"></div><br><br>
                 <textarea class="form-control" placeholder="write your message" name="message"></textarea><br><br>
                 <button class="btn btn-lg bg-danger">REGISTER</button>
 
@@ -152,5 +152,27 @@
     border-radius: 50px !important;
 }
     </style>    
+
+    <script>
+        function blurcheck(selector,message){
+            const data=document.querySelector(selector);
+            const messager=document.querySelector(message)
+            data.addEventListener('blur' ,(e) => {
+            if (e.target.value == "") {
+                messager.style.color = "red";
+                messager.innerHTML = 'field required';
+            }
+            else{
+                messager.innerHTML = '';
+            }
+        })
+        }
+blurcheck('input[name="student-name"]','div[class="snameError"]')
+blurcheck('input[name="student-email"]','div[class="snameError"]')
+blurcheck('input[name="parent-name"]','div[class="snameError"]')
+blurcheck('input[name="school-name"]','div[class="snameError"]')
+blurcheck('input[name="contact-number"]','div[class="snameError"]')
+
+    </script>
 </body>
 </html>
