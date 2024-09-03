@@ -68,10 +68,10 @@
                     <input type="radio" value="4-6" id="radio1" name="age">
                     <label for="radio1" class="radio-label">4-6</label>
 
-                    <input type="radio" value="7-10" id="radio2" name="age">
+                    <input type="radio" value="7-10" id="radio2" name="std">
                     <label for="radio2" class="radio-label">7-10</label>
                     
-                    <input type="radio" value="11-12" id="radio3" name="age">
+                    <input type="radio" value="11-12" id="radio3" name="std">
                     <label for="radio3" class="radio-label">11-12</label>
                 </div><br><br>
                 <span style="color: red;">*</span><input type="email" class="form-control" placeholder="student email" name="student-email"><div class="semailError"></div><br><br>
@@ -154,6 +154,27 @@
     </style>    
 
     <script>
+        // function blurcheckValidate(selector,message){
+        //     const data=document.querySelector(selector);
+        //     const messager=document.querySelector(message)
+            // regExp=/^[a-zA-Z]+$/
+        //     data.addEventListener('blur' ,(e) => {
+        //     if (e.target.value == "") {
+        //         messager.style.color = "red";
+        //         messager.innerHTML = 'field required';
+        //         data.style.borderBottom="2px solid red"
+        //     }
+        //     else if(regExp.test(e.target.value)){
+        //         messager.innerHTML = 'goood';
+        //         messager.style.color = "green";
+        //     }
+        //     else{
+        //         messager.style.color = "red";
+        //         messager.innerHTML = 'check the content';
+        //         data.style.borderBottom="2px solid red"
+        //     }
+        // })
+        // }
         function blurcheck(selector,message){
             const data=document.querySelector(selector);
             const messager=document.querySelector(message)
@@ -161,17 +182,93 @@
             if (e.target.value == "") {
                 messager.style.color = "red";
                 messager.innerHTML = 'field required';
+                data.style.borderBottom="2px solid red"
+
             }
             else{
                 messager.innerHTML = '';
+                data.style.borderBottom="none"
             }
         })
         }
+
+        function validate(selector,message){
+            const data=document.querySelector(selector);
+            const messager=document.querySelector(message)
+            regExp=/^[a-zA-Z]+$/
+            
+            if (!regExp.test(data.value)) {
+                messager.style.color = "red";
+                messager.innerHTML = 'required';
+                data.style.borderBottom="2px solid red"
+                
+
+            }
+            else{
+                messager.innerHTML = '';
+                return data.value
+            }
+        
+        }
+
+        function validateEmail(selector,message){
+            const data=document.querySelector(selector)
+            const messager=document.querySelector(message)
+            regExp=/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/
+            if(!regExp.test(data.value)){
+                messager.style.color = "red";
+                messager.innerHTML = 'check email';
+                data.style.borderBottom="2px solid red"
+                
+            }
+            else{
+                messager.innerHTML=''
+                return data.value
+            }
+        }
+
+        function validateMobile(selector,message){
+            const data=document.querySelector(selector)
+            const messager=document.querySelector(message)
+            regExp=/^[0-9]{10}/
+            if(!regExp.test(data.value)){
+                messager.style.color = "red";
+                messager.innerHTML = 'check contact number';
+                data.style.borderBottom="2px solid red"
+                
+            }
+            else{
+                messager.innerHTML=''
+                return data.value
+            }
+        }
 blurcheck('input[name="student-name"]','div[class="snameError"]')
-blurcheck('input[name="student-email"]','div[class="snameError"]')
-blurcheck('input[name="parent-name"]','div[class="snameError"]')
-blurcheck('input[name="school-name"]','div[class="snameError"]')
-blurcheck('input[name="contact-number"]','div[class="snameError"]')
+blurcheck('input[name="student-email"]','div[class="semailError"]')
+blurcheck('input[name="parent-name"]','div[class="pnameError"]')
+blurcheck('input[name="school-name"]','div[class="schoolError"]')
+blurcheck('input[name="contact-number"]','div[class="contactError"]')
+
+const btn=document.querySelector('button')
+btn.addEventListener('click',(e)=>{
+    e.preventDefault()
+let sname=validate('input[name="student-name"]','div[class="snameError"]')
+let semail=validateEmail('input[name="student-email"]','div[class="semailError"]')
+let contact=validateMobile('input[name="contact-number"]','div[class="contactError"]')
+let pname=validate('input[name="parent-name"]','div[class="pnameError"]')
+let school=validate('input[name="school-name"]','div[class="schoolError"]')
+let std= document.querySelector('input[name="std"]')
+let message=document.querySelector('input[type="textarea"]')
+if(sname!=false && semail!=false && contact!=false && pname!=false && school!=false && std.value!=''){
+    console.log('student name:',sname)
+    console.log('student email:',semail);
+    console.log('contact number',contact);
+    console.log('parent name:',pname);
+    console.log('school name:',school);
+    console.log('standard:',std.value);
+    console.log('message:',message);
+    
+}
+})
 
     </script>
 </body>
